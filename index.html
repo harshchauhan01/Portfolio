@@ -449,32 +449,32 @@
 
 
 
-        const projects = [
-            { title: "H.C BLOG", description: "Design & Development", imgUrl: "img/project1.png" },
-            { title: "Nike Store", description: "Design & Development", imgUrl: "img/project2.png" },
-            { title: "Titan Watch Store", description: "Design & Development", imgUrl: "img/project3.png" },
-            { title: "Pet Palace", description: "Design & Development", imgUrl: "img/project4.png" },
-            { title: "Android system", description: "Design & Development", imgUrl: "img/project5.png" },
-            { title: "Business Startup", description: "Design & Development", imgUrl: "img/project3.png" },
-        ];
+        // const projects = [
+        //     { title: "H.C BLOG", description: "Design & Development", imgUrl: "img/project1.png" },
+        //     { title: "Nike Store", description: "Design & Development", imgUrl: "img/project2.png" },
+        //     { title: "Titan Watch Store", description: "Design & Development", imgUrl: "img/project3.png" },
+        //     { title: "Pet Palace", description: "Design & Development", imgUrl: "img/project4.png" },
+        //     { title: "Android system", description: "Design & Development", imgUrl: "img/project5.png" },
+        //     { title: "Business Startup", description: "Design & Development", imgUrl: "img/project3.png" },
+        // ];
 
-        function loadProjects() {
-            const projectContainer = document.getElementById('projects-container');
-            projectContainer.innerHTML = '';
-            projects.forEach((project) => {
-                const projectHTML = `
-                    <div class="col-12 col-sm-6 col-md-4">
-                        <div class="proj-imgbx">
-                            <img src="${project.imgUrl}" alt="${project.title}">
-                            <div class="proj-txtx">
-                                <h4>${project.title}</h4>
-                                <span>${project.description}</span>
-                            </div>
-                        </div>
-                    </div>`;
-                projectContainer.innerHTML += projectHTML;
-            });
-        }
+        // function loadProjects() {
+        //     const projectContainer = document.getElementById('projects-container');
+        //     projectContainer.innerHTML = '';
+        //     projects.forEach((project) => {
+        //         const projectHTML = `
+        //             <div class="col-12 col-sm-6 col-md-4">
+        //                 <div class="proj-imgbx">
+        //                     <img src="${project.imgUrl}" alt="${project.title}">
+        //                     <div class="proj-txtx">
+        //                         <h4>${project.title}</h4>
+        //                         <span>${project.description}</span>
+        //                     </div>
+        //                 </div>
+        //             </div>`;
+        //         projectContainer.innerHTML += projectHTML;
+        //     });
+        // }
 
         // document.getElementById('tab1-link').addEventListener('click', (event) => {
         //    event.preventDefault();
