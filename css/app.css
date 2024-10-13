@@ -474,6 +474,155 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   z-index: -4;
 }
 
+.project .cont{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  padding-top: 40px;
+}
+
+
+/********Project Card******/
+.project-card {
+  width: 280px;
+  border-radius: 20px;
+  background: #1b233d;
+  padding: 5px;
+  overflow: hidden;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 20px 0px;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+.project-card .top-section {
+  height: 250px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(45deg, rgb(4, 159, 187) 0%, rgb(80, 246, 255) 100%);
+  position: relative;
+  overflow: hidden;
+  
+}
+.project-card .top-section img{
+  width: 100%;
+  height: fit-content;
+}
+
+.project-card .top-section .border {
+  border-bottom-right-radius: 10px;
+  height: 30px;
+  width: 130px;
+  background: white;
+  background: #1b233d;
+  position: relative;
+  transform: skew(-40deg);
+  box-shadow: -10px -10px 0 0 #1b233d;
+}
+
+.project-card .top-section .border::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 0;
+  right: -15px;
+  background: rgba(255, 255, 255, 0);
+  border-top-left-radius: 10px;
+  box-shadow: -5px -5px 0 2px #1b233d;
+}
+
+.project-card .top-section::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 0;
+  background: rgba(255, 255, 255, 0);
+  height: 15px;
+  width: 15px;
+  border-top-left-radius: 15px;
+  box-shadow: -5px -5px 0 2px #1b233d;
+}
+
+.project-card .top-section .icons {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.project-card .top-section .icons .logo {
+  height: 100%;
+  aspect-ratio: 1;
+  padding: 7px 0 7px 15px;
+}
+
+.project-card .top-section .icons .logo .top-section {
+  height: 100%;
+}
+
+.project-card .top-section .icons .social-media {
+  height: 100%;
+  padding: 8px 15px;
+  display: flex;
+  gap: 7px;
+}
+
+.project-card .top-section .icons .social-media .svg {
+  height: 100%;
+  fill: #1b233d;
+}
+
+.project-project-card .top-section .icons .social-media .svg:hover {
+  fill: white;
+}
+
+.project-card .bottom-section {
+  margin-top: 15px;
+  padding: 10px 5px;
+}
+
+.project-card .bottom-section .title {
+  display: block;
+  font-size: 17px;
+  font-weight: bolder;
+  color: white;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.project-card .bottom-section .row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.project-card .bottom-section .row .item {
+  flex: 30%;
+  text-align: center;
+  padding: 5px;
+  color: rgba(170, 222, 243, 0.721);
+}
+
+.project-card .bottom-section .row .item .big-text {
+  font-size: 12px;
+  display: block;
+}
+
+.project-card .bottom-section .row .item .regular-text {
+  font-size: 9px;
+}
+
+.project-card .bottom-section .row .item:nth-child(2) {
+  border-left: 1px solid rgba(255, 255, 255, 0.126);
+  border-right: 1px solid rgba(255, 255, 255, 0.126);
+}
+
 /************ Projects Css ************/
 .contact {
   background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
@@ -545,6 +694,12 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .contact form button:hover::before {
   width: 100%;
 }
+
+
+
+
+
+
 
 /************ Footer Css ************/
 .footer {
@@ -623,4 +778,149 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   color: #B8B8B8;
   letter-spacing: 0.5px;
   margin-top: 20px;
+}
+
+
+/***************About************/
+
+.about{
+  width: 100%;
+  background-image: url("../img/color-sharp.png");
+  background-repeat: no-repeat;
+  position: relative;
+  background-size: auto;
+}
+
+.about .prof-box{
+  background: #151515;
+  border-radius: 24px;
+  text-align: center;
+  padding: 60px 50px;
+  margin: 60px;
+  
+}
+
+.prof-box h2 {
+	font-size: 45px;
+	font-weight: 700;
+}
+
+/* From Uiverse.io by mrhyddenn */ 
+.prof-button {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  background: none;
+  color: #0f1923;
+  cursor: pointer;
+  position: relative;
+  padding: 8px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all .15s ease;
+}
+
+.prof-button::before,
+.prof-button::after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: calc(50% - 5px);
+  border: 1px solid #7D8082;
+  transition: all .15s ease;
+}
+
+.prof-button::before {
+  top: 0;
+  border-bottom-width: 0;
+}
+
+.prof-button::after {
+  bottom: 0;
+  border-top-width: 0;
+}
+
+.prof-button:active,
+.prof-button:focus {
+  outline: none;
+}
+
+.prof-button:active::before,
+.prof-button:active::after {
+  right: 3px;
+  left: 3px;
+}
+
+.prof-button:active::before {
+  top: 3px;
+}
+
+.prof-button:active::after {
+  bottom: 3px;
+}
+
+.button_lg {
+  position: relative;
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #0f1923;
+  overflow: hidden;
+  box-shadow: inset 0px 0px 0px 1px transparent;
+}
+
+.button_lg::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 2px;
+  background-color: #0f1923;
+}
+
+.button_lg::after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 4px;
+  height: 4px;
+  background-color: #0f1923;
+  transition: all .2s ease;
+}
+
+.button_sl {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: -1px;
+  left: -8px;
+  width: 0;
+  background: linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%);
+  transform: skew(-15deg);
+  transition: all .2s ease;
+}
+
+.button_text {
+  position: relative;
+}
+
+.prof-button:hover {
+  color: #0f1923;
+}
+
+.prof-button:hover .button_sl {
+  width: calc(100% + 15px);
+}
+
+.prof-button:hover .button_lg::after {
+  background-color: #fff;
 }
