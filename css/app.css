@@ -335,6 +335,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 .skill-slider .item img {
   width: 50%;
@@ -477,8 +480,12 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .project .cont{
   display: flex;
   width: 100%;
-  justify-content: space-evenly;
+  padding: 20px;
+  justify-content: flex-start;
   padding-top: 40px;
+  overflow-x: auto;
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
 }
 
 
@@ -491,6 +498,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   overflow: hidden;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 20px 0px;
   transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin: 10dp;
+  flex: 0 0 280px;
+  margin-right: 20px;
 }
 
 .project-card:hover {
@@ -789,6 +799,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   background-repeat: no-repeat;
   position: relative;
   background-size: auto;
+  padding: 50px 0;
+  flex-wrap: wrap;
+  
 }
 
 .about .prof-box{
@@ -797,8 +810,69 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   text-align: center;
   padding: 60px 50px;
   margin: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   
 }
+
+.prof-box .prof1{
+  width: 70%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.prof-box img{
+  width: 60%;
+}
+
+
+@media (max-width: 768px) {
+  .prof-box {
+    flex-direction: column; /* Stack the profile image and text */
+    padding: 30px 10px;
+  }
+
+  .prof-box .prof1, .prof-box img {
+    width: 100%; /* Make each section take full width */
+  }
+
+  .prof-box h2 {
+    font-size: 30px; /* Reduce font size */
+  }
+
+  .prof-box p {
+    font-size: 14px; /* Smaller text for better readability on small screens */
+    padding: 0 20px;
+  }
+
+  .prof-box img {
+    width: 80%; /* Adjust image size for small screens */
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .prof-box h2 {
+    font-size: 24px; /* Further reduce heading size for mobile */
+  }
+
+  .prof-box p {
+    font-size: 12px; /* Smaller font for text */
+  }
+
+  .prof-box img {
+    width: 70%; /* Further adjust image size */
+  }
+
+  .prof-button {
+    font-size: 12px; /* Adjust button text size */
+  }
+}
+
+
 
 .prof-box h2 {
 	font-size: 45px;
@@ -912,6 +986,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .button_text {
   position: relative;
 }
+
 
 .prof-button:hover {
   color: #0f1923;

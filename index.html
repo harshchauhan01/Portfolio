@@ -38,7 +38,7 @@
 <body>
     <nav class="navbar navbar-expand-md">
         <div class="container">
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="#home">
                 <img src="img/logo.svg" alt="Logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#basic-navbar-nav">
@@ -48,6 +48,9 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a href="#home" class="nav-link navbar-link" id="home-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link navbar-link" id="projects-link">About</a>
                     </li>
                     <li class="nav-item">
                         <a href="#skills" class="nav-link navbar-link" id="skills-link">Skills</a>
@@ -125,7 +128,7 @@
         </div>
     </section>
 
-    <section class="about">
+    <section class="about" id="about">
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -134,7 +137,7 @@
                             <h2>About</h2>
                             <p>Hi , I am Harsh Chauhan , A Passionate B.Tech CSE graduate proficient in various platforms and languages. Highly organized, and skilled in written and verbal communication. Highly motivated to enhance skills and always try to make a meaningful impact on practical projects . Bringing forth a motivated attitude and the ability to establish strong and productive relationships with other company members.</p>
                             
-                            <button onclick="connect()" class="prof-button">
+                            <button onclick="downloadPDF()" class="prof-button">
                                 <span class="button_lg">
                                     <span class="button_sl"></span>
                                     <span class="button_text">Download  CV <i class="fa-solid fa-download"></i></span>
@@ -142,7 +145,7 @@
                             </button>
                         </div>
                         <div class="prof2">
-
+                            <img src="img/profile.png" alt="">
                         </div>
                     </div>
                     
@@ -605,6 +608,16 @@
         // Optional: Function to connect (dummy function for button click)
         function connect() {
             console.log("Let’s Connect button clicked");
+        }
+
+
+        function downloadPDF() {
+            const a = document.createElement('a');
+            a.href = 'assests/12319734_CV.pdf';
+            a.download = '12319734_CV.pdf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
         }
 
     </script>
