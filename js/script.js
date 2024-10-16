@@ -201,53 +201,7 @@ function downloadPDF() {
 }
 
 
-const contactForm = document.getElementById('contactForm');
-const submitBtn = document.getElementById('submitBtn');
-const statusMessage = document.getElementById('statusMessage');
 
-contactForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-
-    const formDetails = {
-        firstName: document.getElementById('firstName').value,
-        lastName: document.getElementById('lastName').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        message: document.getElementById('message').value,
-    };
-
-    // submitBtn.innerHTML = 'Sending...';
-    
-    try {
-        // Simulating an async operation for sending the form
-        /* 
-        let response = await fetch("http://localhost:3000/contact", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json;charset=utf-8"
-            },
-            body: JSON.stringify(formDetails)
-        });
-        let result = await response.json();
-        */
-
-        let result = { code: 200 }; // Simulated successful result
-
-        if (result.code === 200) {
-            statusMessage.textContent = "Message sent successfully!";
-            statusMessage.className = "success";
-            contactForm.reset();
-        } else {
-            statusMessage.textContent = "Something went wrong. Please try again later.";
-            statusMessage.className = "danger";
-        }
-    } catch (error) {
-        statusMessage.textContent = "Something went wrong. Please try again later.";
-        statusMessage.className = "danger";
-    }
-
-    submitBtn.innerHTML = 'Send';
-});
 
 
 
