@@ -118,55 +118,6 @@ nextBtn.addEventListener('click', () => scrollSlider('next'));
 
 
 
-const contactForm = document.getElementById('contactForm');
-const submitBtn = document.getElementById('submitBtn');
-const statusMessage = document.getElementById('statusMessage');
-
-contactForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-
-    const formDetails = {
-        firstName: document.getElementById('firstName').value,
-        lastName: document.getElementById('lastName').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        message: document.getElementById('message').value,
-    };
-
-    submitBtn.innerHTML = 'Sending...';
-    
-    try {
-        // Simulating an async operation for sending the form
-        /* 
-        let response = await fetch("http://localhost:3000/contact", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json;charset=utf-8"
-            },
-            body: JSON.stringify(formDetails)
-        });
-        let result = await response.json();
-        */
-
-        let result = { code: 200 }; // Simulated successful result
-
-        if (result.code === 200) {
-            statusMessage.textContent = "Message sent successfully!";
-            statusMessage.className = "success";
-            contactForm.reset();
-        } else {
-            statusMessage.textContent = "Something went wrong. Please try again later.";
-            statusMessage.className = "danger";
-        }
-    } catch (error) {
-        statusMessage.textContent = "Something went wrong. Please try again later.";
-        statusMessage.className = "danger";
-    }
-
-    submitBtn.innerHTML = 'Send';
-});
-
-
 
 
 
@@ -248,3 +199,132 @@ function downloadPDF() {
     a.click();
     document.body.removeChild(a);
 }
+
+
+const contactForm = document.getElementById('contactForm');
+const submitBtn = document.getElementById('submitBtn');
+const statusMessage = document.getElementById('statusMessage');
+
+contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const formDetails = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        message: document.getElementById('message').value,
+    };
+
+    // submitBtn.innerHTML = 'Sending...';
+    
+    try {
+        // Simulating an async operation for sending the form
+        /* 
+        let response = await fetch("http://localhost:3000/contact", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json;charset=utf-8"
+            },
+            body: JSON.stringify(formDetails)
+        });
+        let result = await response.json();
+        */
+
+        let result = { code: 200 }; // Simulated successful result
+
+        if (result.code === 200) {
+            statusMessage.textContent = "Message sent successfully!";
+            statusMessage.className = "success";
+            contactForm.reset();
+        } else {
+            statusMessage.textContent = "Something went wrong. Please try again later.";
+            statusMessage.className = "danger";
+        }
+    } catch (error) {
+        statusMessage.textContent = "Something went wrong. Please try again later.";
+        statusMessage.className = "danger";
+    }
+
+    submitBtn.innerHTML = 'Send';
+});
+
+
+
+(function () {
+    "use strict";
+    /*
+    * Form Validation
+    */
+
+    // Fetch all the forms we want to apply custom validation styles to
+    const forms = document.querySelectorAll(".needs-validation");
+    const result = document.getElementById("result");
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener(
+        "submit",
+        function (event) {
+            if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            form.querySelectorAll(":invalid")[0].focus();
+            } else {
+            /*
+            * Form Submission using fetch()
+            */
+
+            const formData = new FormData(form);
+            event.preventDefault();
+            event.stopPropagation();
+            const object = {};
+            formData.forEach((value, key) => {
+                object[key] = value;
+            });
+            const json = JSON.stringify(object);
+            submitBtn.innerHTML = 'Sending...';
+            result.innerHTML = "Please wait...";
+
+            fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+                },
+                body: json
+            })
+                .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    result.innerHTML = json.message;
+                    result.classList.remove("text-gray-500");
+                    result.classList.add("text-green-500");
+                } else {
+                    console.log(response);
+                    result.innerHTML = json.message;
+                    submitBtn.innerHTML = 'Send';
+                    result.classList.remove("text-gray-500");
+                    result.classList.add("text-red-500");
+                }
+                })
+                .catch((error) => {
+                console.log(error);
+                submitBtn.innerHTML = 'Send';
+                result.innerHTML = "Something went wrong!";
+                })
+                .then(function () {
+                form.reset();
+                form.classList.remove("was-validated");
+                setTimeout(() => {
+                    result.style.display = "none";
+                }, 5000);
+                });
+            }
+            submitBtn.innerHTML = 'Send';
+            form.classList.add("was-validated");
+        },
+        false
+        );
+    });
+    })();
